@@ -2,7 +2,7 @@
  * SensorHandling.h
  *
  * Created: 2015-04-22 14:14:43
- *  Author: Andreas Hamoud
+ *  Author: Andreas
  */
 
 #ifndef ADCDAC_H_
