@@ -2,7 +2,7 @@
  * Regulation.h
  *
  * Created: 2015-05-14 15:46:35
- *  Author: Andreas Hamoud
+ *  Author: Andreas
  */ 
 
 
