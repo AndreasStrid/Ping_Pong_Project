@@ -2,7 +2,7 @@
  * PWMHandling.h
  *
  * Created: 2015-05-13 15:17:36
- *  Author: Andreas Hamoud
+ *  Author: Andreas 
  */ 
 
 // Side Fans PWM Pins 6-9
