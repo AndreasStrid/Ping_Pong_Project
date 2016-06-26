@@ -2,7 +2,7 @@
  * main.c
  *
  * Created: 2015-04-22 08:30:13
- *  Author: Andreas Strid Hamoud
+ *  Author: Andreas Strid 
  */ 
 
 // Loads all necessary libraries 
@@ -32,9 +32,6 @@ static void configure_UART(void)
 	#if defined(__GNUC__)
 	setbuf(stdout, NULL);
 	#endif
-	
-	// stdout = &uart_output;
-	// stdin  = &uart_input;
 }
 /*
 *This function initiate the arduinos clock, AD convert and PWN setup so the arduino will work
@@ -46,7 +43,6 @@ void arduino_setup()
 	ioport_init();
 	adc_setup();
 	PWM_setup();
-	
 }
 /*
 *This will send information to matlab by the bluetooth modulue 
@@ -61,22 +57,16 @@ void Bluetooth(void *p)
 		printf("%d \n", getSensorValues(1));
 		printf("%d \n", getPowerValue());
 		printf("%d \n", getErrorValue());
-	    vTaskDelayUntil( &xLastWakeTime, xTimeIncrement);
+	        vTaskDelayUntil( &xLastWakeTime, xTimeIncrement);
 	}
-
 }
 int main(void)
 {
+	arduino_setup();
+	configure_UART();
 
-arduino_setup();
-configure_UART();
-
-//SetPID();
-
-
-xTaskCreate(sensorCheck, (const signed char * const) "sensorCheck", Sensor_Stack, NULL,tskIDLE_PRIORITY , NULL); 
-xTaskCreate(FanRegulation, (const signed char * const) "FanRegulation", Reg_Stack, NULL, tskIDLE_PRIORITY, NULL);
-xTaskCreate(Bluetooth, (const signed char * const) "Bluetooth", Blue_Stack, NULL, tskIDLE_PRIORITY, NULL);
-vTaskStartScheduler();
-
+	xTaskCreate(sensorCheck, (const signed char * const) "sensorCheck", Sensor_Stack, NULL,tskIDLE_PRIORITY , NULL); 
+	xTaskCreate(FanRegulation, (const signed char * const) "FanRegulation", Reg_Stack, NULL, tskIDLE_PRIORITY, NULL);
+	xTaskCreate(Bluetooth, (const signed char * const) "Bluetooth", Blue_Stack, NULL, tskIDLE_PRIORITY, NULL);
+	vTaskStartScheduler();
 }
