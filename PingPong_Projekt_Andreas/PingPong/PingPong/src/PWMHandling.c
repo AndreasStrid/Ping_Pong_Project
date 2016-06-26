@@ -2,7 +2,7 @@
  * PWMHandling.c
  *
  * Created: 2015-05-13 15:17:02
- *  Author: Andreas Hamoud
+ *  Author: Andreas
  */
 #include <asf.h>
 #include <stdio.h>
