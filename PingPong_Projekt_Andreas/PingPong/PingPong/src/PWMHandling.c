@@ -38,5 +38,5 @@ void PWM_setup()
 */
 void setFan(int Fan_power)
 {
-		pwm_channel_update_duty(PWM, &PWM_Pin_6 , Fan_power);
+	pwm_channel_update_duty(PWM, &PWM_Pin_6 , Fan_power);
 }
