@@ -4,12 +4,14 @@
 #include "PWMHandling.h"
 #include "Regulation.h"
 
-
+//PID variables
 int error_value = 0;
 double P = 0;
 double I = 0;
 double D = 0;
 int Old_error = 0;
+double PID = 0;
+int u = 0;
 
 //PID konstants
 double Kp = 0.7;
@@ -17,11 +19,6 @@ double TI = 0.35;
 double TD= 0.125;
 int bv = 400;
 int dT = 1;
-
-double PID = 0;
-int u = 0;
-
-
 /*
 * This task will decide the amount of power the fan will recieve
 */
@@ -72,7 +69,7 @@ uint8_t PID_calculation(int Error_value)
 		//the outsignal to matlab
 		u = (int) PID;
 	 	// Return the percentage the fan should be on, 100% = 1023, 0% = 0.
-	     return (uint8_t) ( ( PID/1023 ) * 100 );
+	        return (uint8_t) ( ( PID/1023 ) * 100 );
 }
 /*
 * This function sets regulation values
