@@ -16,7 +16,7 @@ uint16_t PR_Filter[10];
 int PR_Sum = 0;
 uint8_t count = 0;
 
-//Our measurements
+//Our measurements where from 1 - 60cm is represent digital values
 int Measure[] = {0, 125, 249, 249, 249, 249, 249, 249, 249, 249, 249, 249, 249, 249, 249, 249, 249, 250, 251, 251, 254, 254, 260, 261, 266, 276, 274, 
  284, 286, 296, 297, 304, 315, 316, 320, 324, 330, 342, 344, 349, 364, 370, 384, 398, 416, 445, 452, 472, 495, 544, 584, 683, 728, 728, 728, 728, 729
 	, 729, 729, 729 };
@@ -59,7 +59,7 @@ void sensorCheck(void *p)
 		
 			PR = (uint16_t) (PR_Sum/10);
 			//Clear the sum to zero again
-		    PR_Sum = 0;
+		        PR_Sum = 0;
 			count = 0;
 		}
 	}
@@ -94,5 +94,5 @@ int cmToBit(int v)
 */
 int getSensorValues()
 {
-		return PR;
+	return PR;
 }
